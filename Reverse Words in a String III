@@ -1,0 +1,30 @@
+class Solution {
+        static void reverse(char q[],int start,int end)
+         { 
+            char h;
+            while(end>=start)
+            {
+                 h=q[start];
+                 q[start]=q[end];
+                 q[end]=h;
+                 end--;
+                 start++;
+            }
+        }
+    public String reverseWords(String s) {
+        char[]q=s.toCharArray();
+        int start=0;
+        for(int end=0;end<s.length();end++)
+        {
+            if(q[end]==' ')
+            {
+                reverse(q,start,end-1);
+                start=end+1;
+            }
+        }
+                   
+            reverse(q,start,s.length()-1);
+            s = String.valueOf(q);
+            return s;
+    }
+}
